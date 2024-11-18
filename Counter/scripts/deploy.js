@@ -7,12 +7,11 @@
 const hre = require("hardhat");
 
 async function main() {
-  const initBalance = 1;
-  const Assessment = await hre.ethers.getContractFactory("Assessment");
-  const assessment = await Assessment.deploy(initBalance);
-  await assessment.deployed();
+  const CounterContract = await hre.ethers.getContractFactory("CounterContract");
+  const counter = await CounterContract.deploy();
+  await counter.deployed();
 
-  console.log(`A contract with balance of ${initBalance} eth deployed to ${assessment.address}`);
+  console.log(`CounterContract deployed to ${counter.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
