@@ -1,12 +1,31 @@
-# Starter Next/Hardhat Project
+## Overview
+This project is a decentralized application (dApp) featuring a simple counter implemented using a Solidity smart contract. 
+The project allows users to interact with the counter through a web-based frontend connected to the Ethereum blockchain. 
+Users can increment, decrement, and view the counter value in real-time using their MetaMask wallets.
 
-After cloning the github, you will want to do the following to get the code running on your computer.
+## Features
+- View the current value of the counter stored on the blockchain.
+- Increment or decrement the counter using smart contract functions.
+- Connect to the Ethereum blockchain via MetaMask.
+- Deployed using Hardhat on a local or test Ethereum network.
 
-1. Inside the project directory, in the terminal type: npm i
-2. Open two additional terminals in your VS code
-3. In the second terminal type: npx hardhat node
-4. In the third terminal, type: npx hardhat run --network localhost scripts/deploy.js
-5. Back in the first terminal, type npm run dev to launch the front-end.
+## Project Structure
+### 1. Smart Contract: `Assessment.sol`
+The Solidity smart contract contains the core logic for the counter:
+- **`counter`**: A state variable that stores the current counter value.
+- **`getCounter`**: A public function to retrieve the current counter value.
+- **`increment`**: A public function to increase the counter value by 1.
+- **`decrement`**: A public function to decrease the counter value by 1.
 
-After this, the project will be running on your localhost. 
-Typically at http://localhost:3000/
+### 2. Deployment Script: `deploy.js`
+This script deploys the `Assessment.sol` smart contract to the blockchain. 
+- It uses Hardhat and automatically assigns a contract address after deployment.
+- This address is essential for interacting with the contract via the frontend.
+
+### 3. Frontend: `index.js`
+The React-based frontend enables user interaction with the smart contract. 
+- **Functions**:
+  - **Connect Wallet**: Allows users to connect their MetaMask wallet.
+  - **Display Counter**: Fetches and displays the current counter value using `getCounter`.
+  - **Increment/Decrement**: Sends transactions to call `increment` and `decrement` functions in the smart contract.
+- Uses Ethers.js to manage blockchain interactions.
